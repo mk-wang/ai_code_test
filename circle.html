@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* CSS Variables for easy customization */
+      :root {
+        --circle-size: 50px;
+        --animation-duration: 2s;
+        --rotation-duration: 8s;
+        --base-color: #63f78a;
+        --circle-offset: 50px;
+      }
+
+      /* Basic Setup */
+      body {
+        height: 100vh;
+        background-color: #111827;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+      }
+
+      /* Container */
+      .container {
+        position: relative;
+        transform: scale(0.5);
+      }
+
+      /* Group Animation */
+      .group1,
+      .group2 {
+        position: absolute;
+        animation: rotate var(--rotation-duration) linear infinite;
+        transform-origin: center;
+      }
+
+      /* Circle Container */
+      .circle-box {
+        position: absolute;
+      }
+
+      /* Base Circle Styles */
+      .circle {
+        width: var(--circle-size);
+        height: var(--circle-size);
+        border-radius: 50%;
+        position: absolute;
+        left: var(--circle-offset);
+        top: calc(var(--circle-size) / -2);
+        animation: move var(--animation-duration) ease infinite;
+      }
+
+      /* Circle Rotation Positions */
+      .circle-box:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      .circle-box:nth-child(2) {
+        transform: rotate(90deg);
+      }
+      .circle-box:nth-child(3) {
+        transform: rotate(135deg);
+      }
+      .circle-box:nth-child(4) {
+        transform: rotate(180deg);
+      }
+      .circle-box:nth-child(5) {
+        transform: rotate(225deg);
+      }
+      .circle-box:nth-child(6) {
+        transform: rotate(270deg);
+      }
+      .circle-box:nth-child(7) {
+        transform: rotate(315deg);
+      }
+      .circle-box:nth-child(8) {
+        transform: rotate(360deg);
+      }
+
+      /* Circle Colors and Delays */
+      .group1 .circle-box:nth-child(1) .circle,
+      .group2 .circle-box:nth-child(1) .circle {
+        background-color: #63f78a;
+        animation-delay: 0s;
+      }
+      .group1 .circle-box:nth-child(2) .circle,
+      .group2 .circle-box:nth-child(2) .circle {
+        background-color: #5ff19f;
+        animation-delay: 0.25s;
+      }
+      .group1 .circle-box:nth-child(3) .circle,
+      .group2 .circle-box:nth-child(3) .circle {
+        background-color: #5deea8;
+        animation-delay: 0.5s;
+      }
+      .group1 .circle-box:nth-child(4) .circle,
+      .group2 .circle-box:nth-child(4) .circle {
+        background-color: #5cebb2;
+        animation-delay: 0.75s;
+      }
+      .group1 .circle-box:nth-child(5) .circle,
+      .group2 .circle-box:nth-child(5) .circle {
+        background-color: #5ae7bb;
+        animation-delay: 1s;
+      }
+      .group1 .circle-box:nth-child(6) .circle,
+      .group2 .circle-box:nth-child(6) .circle {
+        background-color: #58e4c3;
+        animation-delay: 1.25s;
+      }
+      .group1 .circle-box:nth-child(7) .circle,
+      .group2 .circle-box:nth-child(7) .circle {
+        background-color: #57e0cc;
+        animation-delay: 1.5s;
+      }
+      .group1 .circle-box:nth-child(8) .circle,
+      .group2 .circle-box:nth-child(8) .circle {
+        background-color: #56dcd3;
+        animation-delay: 1.75s;
+      }
+
+      /* Second group animation */
+      .group2 .circle {
+        animation-name: move2;
+      }
+
+      /* Animations */
+      @keyframes move {
+        0% {
+          transform: scale(1) translateX(0) rotate(0);
+          opacity: 0.8;
+        }
+        40% {
+          transform: scale(1.5) translateX(20px) skew(10deg) rotate(200deg);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(0.3) translateX(0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes move2 {
+        0% {
+          transform: scale(0.3) translateX(130px) rotate(0);
+          opacity: 0;
+        }
+        40% {
+          transform: scale(1) translateX(130px) rotate(0);
+          opacity: 1;
+        }
+        60% {
+          transform: scale(1.8) translateX(100px) skew(10deg) rotate(200deg);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(0.3) translateX(130px) rotate(0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="group1">
+        <!-- First group circles -->
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+      </div>
+      <div class="group2">
+        <!-- Second group circles with same colors and delays -->
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+        <div class="circle-box"><div class="circle"></div></div>
+      </div>
+    </div>
+  </body>
+</html>
